@@ -187,26 +187,45 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
-  - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+- Component Design #1: SpellBook
+  - *Description**:
+    I want to create a component where it would mimic what spells a player has.
+    I would like to create a Set of spells that would be able to add to the spell
+    book with a power level, remove from the spell book,
+    and even check the spell power level. For the secondary methods, I want to
+    be able to return spells that are above a certain minimum power level and
+    even returning a set with all the spells created.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void addSpell(String spellName, int powerLevel)`: adds a given spell with
+     a power level to the spell book; even updates the power level of the spell
+     if it was named the same
+    - `String removeSpell(String spell)`: Removes the given spell and returns it
+    - `int getPower(String spell)`: reports the power level of the spell
+    - `int spellsCount()`: reports the number of spells in the book
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `Set<String> allSpells()`: returns the entire set of spell names
+    - `Map<String, Integer> spellsAbove(int powerLevel)`: returns a map of spells
+    that are above a minimum power level
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, my component would be mutable because it is able to add/remove from
+      the spell book.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+    - Yes, I would need to rely on internal classes like Map.Pair to be able to
+    store the name of the spells with the power level associated with it.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No, it would not because I am only using Strings and numbers created by
+      the user of the porgram.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, I would be able to implement my secondary methods with my kernel
+      methods because all I need to do is add spells to the spell book and then use that
+      for my secondary methods. For example, for the spellsAbove() secondary method,
+      all I would need to do is use getPower() to iterate through the power levels
+      of the spells and then only return what is above that threshold.
 
 - Component Design #2: <!-- TODO: give component a name then delete this comment -->
   - **Description**:
