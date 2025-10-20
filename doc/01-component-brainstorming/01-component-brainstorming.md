@@ -103,7 +103,7 @@ spells/abilities and even something banking related as I always liked the
 concept of interest rates. My career goals include potentially being a game
 designer or someone that creates data visualizations relating to the Finance
 industry. With this in mind, I would like to create something with spells or
-maybe a bank loan component for this specific portfolio project.
+maybe counting component for this specific portfolio project.
 
 ## Assignment
 
@@ -227,47 +227,82 @@ will likely refine your design to make your implementation easier to use.
       all I would need to do is use getPower() to iterate through the power levels
       of the spells and then only return what is above that threshold.
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: BackpackInventory
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component allows for items to be added, removed, moved, and even
+    keeps track of an item's qunatity. It mimics how a game utilizes a backpack
+    inventory system. The secondary methods are for more complex actions like
+    getting the specific item's quantity, combining the quantity of an item if
+    it appears multiple time, and even contains method for the item to see if it
+    exists within the backpack.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void addItem(String item, NaturalNumber quantity)`: adds a given item with
+     a quantity to the backpack; Does not combine the quantity of the item with
+     other duplicates
+    - `void moveItem(int pos, int movedPos)`: Moves the specified item to the
+    specific position and combines if it is the same item
+    - `String removeItem(int pos)`: removes the item from the given position
+    and returns it
+    - `int itemsCount()`: reports the number of items in the backpack; Not quantity,
+    but how many spaces the items take up in the backpack
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `NaturalNumber quantityNumber(String item)`: returns the quantity of the
+    specified item throughout the backpack
+    - `boolean containsTheItem(String item)`: Checks if the item exists within
+    the backpack
+    - `void combineItems(String item)`: Combines the quantities of the specific item
+    into one space in the backpack
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, because the component is able to add, remove, and even combine
+      the items in the backpack.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, I would need to rely on internal classes like Map.Pair to be able to
+    store the name of the items and the quantity associated with it.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - No, it would not because I am only using Strings and numbers created by
+      the user of the porgram.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, because the secondary methods only need to combine methods like addItem()
+      and itemsCount() to make the secondary methods. For example, qunatityNumber()
+      could be made with addItem() to loop through the backpack.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: StopWatch
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component is made to mirror a stopwatch, but also have the ability
+    to rewind and fast forward time(measures in seconds). The purpose is to be able
+    to be used in races and just measuring duration with a possibility to fast forward/rewind.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - `void starting()`: Starts or continues the stopwatch from its current point
+    in seconds
+    - `void pause()`: Pauses the time in seconds
+    - `void reset()`: Sets the time and laps of time to 0
+    - `NaturalNumber theElapsedTime()`: reports the total elapsed time
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - `void lap()`: Makes the current elapsed time into a lap using a Queue
+    - `boolean containsTheItem(String item)`: Checks if the item exists within
+    the backpack
+    - `boolean isOn()`: Used to make sure that the stopwatch is on; kind of like an
+    on/off switch for the stopwatch
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, because the time can be changed using the kernel methods.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I would use a Queue and NaturalNumber if those count as internal
+      classes.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I don't know
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, I can use my kernel methods to implement secondary methods like how
+      I can implement lap() with elpasedTime() to get the time.
 
 ## Post-Assignment
 
@@ -275,8 +310,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -298,9 +331,9 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
-- Designed a <!-- insert name of component 2 here --> component
-- Designed a <!-- insert name of component 3 here --> component
+- Designed a SpellBook component
+- Designed a BackpackInventory component
+- Designed a StopWatch component
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
@@ -315,8 +348,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
 this [Markdown to PDF guide][markdown-to-pdf-guide]. However, PDFs should be
@@ -325,11 +356,7 @@ all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
 
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
-
 ### Peer Review
-
-<!-- TODO: review the peer review guidelines then delete this comment -->
 
 Following the completion of this assignment, you will be assigned three
 students' component brainstorming assignments for review. Your job during the
@@ -355,8 +382,6 @@ PDF to read this rubric as a table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [example-components]: https://therenegadecoder.com/code/the-never-ending-list-of-small-programming-project-ideas/
 [markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
