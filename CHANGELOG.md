@@ -20,6 +20,10 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
+- Designed a proof of concept for SpellBook component
+
+### Updated
+
 - Made the no-args constructor for SpellBook
 - Made the kernel methods in a practice SpellBook class
 - Made the main method and tested all my practice methods
