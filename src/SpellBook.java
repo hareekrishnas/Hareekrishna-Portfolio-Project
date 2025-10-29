@@ -46,13 +46,22 @@ public class SpellBook {
         return count;
     }
 
+    //hasSpells Kernel method; Checks if the spell exists in teh SpellBook
+    public final boolean hasSpells(String spellName) {
+        boolean hasSpell = false;
+        if (this.spells.hasKey(spellName)) {
+            hasSpell = true;
+        }
+        return hasSpell;
+    }
+
     //Main Method
     public static void main(String[] args) {
         SpellBook spell = new SpellBook();
         spell.addSpell("Fire", new NaturalNumber1L(10));
         spell.addSpell("Water", new NaturalNumber1L(5));
         spell.addSpell("Rock", new NaturalNumber1L(7));
-        //CHeck to see if it replaces the power level for fire spell
+        //Check to see if it replaces the power level for fire spell
         spell.addSpell("Fire", new NaturalNumber1L(6));
 
         NaturalNumber powerLevel = spell.getPower("Fire");
