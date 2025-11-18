@@ -62,4 +62,54 @@ public abstract class SpellBookSecondary implements SpellBook {
         }
         return stronger;
     }
+
+    /**
+     * Checks if this SpellBook is equal to the given object.
+     *
+     * @param obj
+     *            the object to compare
+     * @return true if obj is a SpellBook with the same spells and power levels
+     */
+    @Override
+    public final boolean equals(Object obj) {
+
+        boolean result = false;
+        if (obj != null) {
+            if (this == obj) {
+                result = true;
+            } else {
+                SpellBook object = (SpellBook) obj;
+                result = this.allSpells().equals(object.allSpells());
+            }
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns a string representation of each spell and its power level.
+     *
+     * @return a string listing all of the spells
+     */
+    @Override
+    public final String toString() {
+        String result = "";
+        String s = "{";
+
+        Set<String> names = this.allSpells();
+        int count = 0;
+
+        for (String name : names) {
+            s = s + name + ": " + this.getPower(name).toString();
+            count = count + 1;
+            if (count < names.size()) {
+                s = s + ", ";
+            }
+        }
+        s = s + "}";
+        result = s;
+
+        return result;
+    }
+
 }
