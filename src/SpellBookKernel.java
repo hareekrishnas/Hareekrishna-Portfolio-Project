@@ -6,7 +6,7 @@ import components.standard.Standard;
  *
  * @author Hareekrishna Shankarganesh
  */
-public interface SpellBookKernel extends Standard {
+public interface SpellBookKernel extends Standard<SpellBook> {
 
     /**
      * Adds a spell with the given power level to this SpellBook. If the spell

@@ -11,7 +11,10 @@ public interface SpellBook extends SpellBookKernel {
     /**
      * Returns a set of all spell names currently in the SpellBook.
      *
+     *
      * @return a set containing all spell names
+     * @ensures allSpells has every spell name in this
+     * @ensures this will not be changed
      */
     Set<String> allSpells();
 
@@ -22,6 +25,10 @@ public interface SpellBook extends SpellBookKernel {
      * @param minPowerLevel
      *            the minimum power level to filter spells
      * @return a map of spell names to their power levels meeting the threshold
+     * @requires minPowerLevel >= 0
+     * @ensures SpellBook will not change
+     * @ensures returns the spells that are greater than or equal to the given
+     *          minimum powerl level.
      */
     Map<String, NaturalNumber> spellsAbove(int minPowerLevel);
 
