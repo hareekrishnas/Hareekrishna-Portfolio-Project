@@ -10,14 +10,6 @@ import components.set.Set1L;
  * @author Hareekrishna Shankarganesh
  */
 public abstract class SpellBookSecondary implements SpellBook {
-    private Map<String, NaturalNumber> spells;
-
-    /**
-     * No-argument constructor.
-     */
-    public SpellBookSecondary() {
-        this.spells = new Map1L<>();
-    }
 
     /**
      * Returns all spell names currently in the spellbook.
@@ -29,12 +21,14 @@ public abstract class SpellBookSecondary implements SpellBook {
     @Override
     public final Set<String> allSpells() {
         Set<String> names = new Set1L<>();
-        Map<String, NaturalNumber> temp = this.spells.newInstance();
-        temp.transferFrom(this.spells);
-        while (temp.size() > 0) {
-            Map.Pair<String, NaturalNumber> pair = temp.removeAny();
-            names.add(pair.key());
-            this.spells.add(pair.key(), pair.value());
+        String[] spells = new String[this.spellsCount()];
+        int i = 0;
+        for (String s : this.allSpells()) {
+            spells[i] = s;
+            i++;
+        }
+        for (int x = 0; x < spells.length; x++) {
+            names.add(spells[x]);
         }
         return names;
     }
@@ -42,23 +36,27 @@ public abstract class SpellBookSecondary implements SpellBook {
     /**
      * Returns a map of spells stronger than the given level.
      *
-     * @param level
+     * @param minPowerLevel
      *            the minimum power level
      * @return a map of spells above the given level
      * @ensures spellsAbove = map where powerLevel > the level
      */
 
     @Override
-    public final Map<String, NaturalNumber> spellsAbove(NaturalNumber level) {
+    public final Map<String, NaturalNumber> spellsAbove(int minPowerLevel) {
         Map<String, NaturalNumber> stronger = new Map1L<>();
-        Map<String, NaturalNumber> temp = this.spells.newInstance();
-        temp.transferFrom(this.spells);
-        while (temp.size() > 0) {
-            Map.Pair<String, NaturalNumber> p = temp.removeAny();
-            if (p.value().compareTo(level) > 0) {
-                stronger.add(p.key(), p.value());
+        Set<String> names = this.allSpells();
+        String[] spells = new String[this.spellsCount()];
+        int i = 0;
+        for (String s : names) {
+            spells[i] = s;
+            i++;
+        }
+        for (int x = 0; x < spells.length; x++) {
+            NaturalNumber powerL = this.getPower(spells[x]);
+            if (powerL.toInt() > minPowerLevel) {
+                stronger.add(spells[x], powerL);
             }
-            this.spells.add(p.key(), p.value());
         }
         return stronger;
     }
