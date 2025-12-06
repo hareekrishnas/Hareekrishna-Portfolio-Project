@@ -6,7 +6,15 @@ import components.set.Set;
 import components.set.Set1L;
 
 public class SpellBook1L implements SpellBook {
-
+    /**
+     * The SpellBook1L Component.
+     *
+     * @convention There are no duplicates in SpellBook
+     * @correspondence SpellBook only has spells that is inputted along with
+     *                 their associated power levels.
+     *
+     *
+     */
     private Map<String, NaturalNumber> spells;
 
     /**
@@ -92,13 +100,13 @@ public class SpellBook1L implements SpellBook {
     }
 
     @Override
-    public void transferFrom(Object arg0) {
+    public final void transferFrom(Object arg0) {
         SpellBook1L s = (SpellBook1L) arg0;
         this.spells.transferFrom(s.spells);
     }
 
     @Override
-    public Map<String, NaturalNumber> spellsAbove(int minPowerLevel) {
+    public final Map<String, NaturalNumber> spellsAbove(int minPowerLevel) {
         Map<String, NaturalNumber> stronger = new Map1L<>();
         NaturalNumber n = new NaturalNumber1L(minPowerLevel);
         for (Map.Pair<String, NaturalNumber> p : this.spells) {
