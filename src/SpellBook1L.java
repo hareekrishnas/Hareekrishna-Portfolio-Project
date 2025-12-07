@@ -5,6 +5,10 @@ import components.naturalnumber.NaturalNumber1L;
 import components.set.Set;
 import components.set.Set1L;
 
+/**
+ * Implementation of the SpellBook component using the OSU API.
+ */
+
 public class SpellBook1L implements SpellBook {
     /**
      * The SpellBook1L Component.
@@ -90,8 +94,12 @@ public class SpellBook1L implements SpellBook {
 
     @Override
     public final SpellBook newInstance() {
-        SpellBook result = new SpellBook1L();
-        return result;
+        try {
+            return this.getClass().getConstructor().newInstance();
+        } catch (ReflectiveOperationException e) {
+            throw new AssertionError(
+                    "Cannot construct object of type " + this.getClass());
+        }
     }
 
     @Override
@@ -100,9 +108,14 @@ public class SpellBook1L implements SpellBook {
     }
 
     @Override
-    public final void transferFrom(Object arg0) {
-        SpellBook1L s = (SpellBook1L) arg0;
-        this.spells.transferFrom(s.spells);
+    public final void transferFrom(SpellBook spell) {
+        assert spell != null : "Violation of: spell is not null";
+        assert spell != this : "Violation of: spell is not this";
+        assert spell instanceof SpellBook1L : "Violation of: spell is of dynamic type SpellBook1L";
+
+        SpellBook1L other = (SpellBook1L) spell;
+        this.spells = other.spells;
+        other.createNewRep();
     }
 
     @Override

@@ -1,4 +1,3 @@
-
 import components.naturalnumber.NaturalNumber;
 import components.standard.Standard;
 
@@ -7,7 +6,7 @@ import components.standard.Standard;
  *
  * @author Hareekrishna Shankarganesh
  */
-public interface SpellBookKernel extends Standard {
+public interface SpellBookKernel extends Standard<SpellBook> {
 
     /**
      * Adds a spell with the given power level to this SpellBook. If the spell
@@ -57,5 +56,17 @@ public interface SpellBookKernel extends Standard {
      * @return true if the spell exists, false when it is not
      */
     boolean hasSpell(String spellName);
+
+    /**
+     * Transfers all content from the given SpellBook to this SpellBook.
+     *
+     * @param spell
+     *            the SpellBook whose contents are to be transferred
+     * @updates $this
+     * @clears spell
+     * @ensures $this = #spell AND spell = <>
+     */
+    @Override
+    void transferFrom(SpellBook T);
 
 }
