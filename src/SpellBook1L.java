@@ -129,4 +129,53 @@ public class SpellBook1L implements SpellBook {
         }
         return stronger;
     }
+
+    @Override
+    public final boolean equals(Object obj) {
+
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof SpellBook)) {
+            return false;
+        }
+
+        SpellBook other = (SpellBook) obj;
+        Set<String> spellNames = this.allSpells();
+        Set<String> otherNames = other.allSpells();
+
+        if (spellNames.size() != otherNames.size()) {
+            return false;
+        }
+
+        for (String spell : spellNames) {
+            if (!otherNames.contains(spell)) {
+                return false;
+            }
+            if (!this.getPower(spell).equals(other.getPower(spell))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    @Override
+    public final String toString() {
+        String result = "{";
+        Set<String> names = this.allSpells();
+        int i = 0;
+        for (String spell : names) {
+            result += spell + ": " + this.getPower(spell).toString();
+            i++;
+            if (i < names.size()) {
+                result += ", ";
+            }
+        }
+        result += "}";
+        return result;
+    }
 }

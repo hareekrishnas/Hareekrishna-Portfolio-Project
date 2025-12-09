@@ -52,23 +52,35 @@ public abstract class SpellBookSecondary implements SpellBook {
 
     @Override
     public final boolean equals(Object obj) {
-        boolean result = false;
-        if (this == obj) {
-            result = true;
-        } else if (obj instanceof SpellBook) {
-            SpellBook spell2 = (SpellBook) obj;
-            Set<String> spells = this.allSpells();
-            Set<String> names = spell2.allSpells();
-            result = spells.equals(names);
-            if (result) {
-                for (String spell : spells) {
-                    if (!this.getPower(spell).equals(spell2.getPower(spell))) {
-                        result = false;
-                    }
-                }
+
+        if (obj == this) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof SpellBook)) {
+            return false;
+        }
+
+        SpellBook other = (SpellBook) obj;
+        Set<String> spellNames = this.allSpells();
+        Set<String> otherNames = other.allSpells();
+
+        if (spellNames.size() != otherNames.size()) {
+            return false;
+        }
+
+        for (String spell : spellNames) {
+            if (!otherNames.contains(spell)) {
+                return false;
+            }
+            if (!this.getPower(spell).equals(other.getPower(spell))) {
+                return false;
             }
         }
-        return result;
+
+        return true;
     }
 
     @Override
