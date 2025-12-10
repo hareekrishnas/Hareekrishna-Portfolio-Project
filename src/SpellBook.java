@@ -32,4 +32,12 @@ public interface SpellBook extends SpellBookKernel {
      */
     Map<String, NaturalNumber> spellsAbove(int minPowerLevel);
 
+    /**
+     * Provides an iterable for all the spell and power level pairs in this.
+     *
+     * @return iterable of all key–value pairs in spellbook
+     * @ensures pairs is the entries of this
+     */
+    Iterable<Map.Pair<String, NaturalNumber>> pairs();
+
 }

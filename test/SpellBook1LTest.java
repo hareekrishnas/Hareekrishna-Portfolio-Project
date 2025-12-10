@@ -3,7 +3,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import components.map.Map;
+import components.naturalnumber.NaturalNumber;
 import components.naturalnumber.NaturalNumber1L;
+import components.set.Set;
+import components.set.Set1L;
 
 /**
  * JUnit test cases for SpellBook1L using OSU Components API. Tests the kernel
@@ -238,5 +242,73 @@ public class SpellBook1LTest {
         spell2.addSpell("Wind", new NaturalNumber1L(30));
         spell.transferFrom(spell2);
         assertTrue(spell.spellsCount() == 3 && spell2.spellsCount() == 0);
+    }
+
+    /**
+     * Test for iterable method for zero.
+     */
+    @Test
+    public void testIterableZero() {
+        SpellBook s = new SpellBook1L();
+
+        int count = 0;
+        for (Map.Pair<String, NaturalNumber> p : s.pairs()) {
+            count++;
+        }
+
+        assertEquals(0, count);
+    }
+
+    /**
+     * Test for iterable method for one.
+     */
+
+    @Test
+    public void testIterableOne() {
+        SpellBook s = new SpellBook1L();
+        s.addSpell("Fire", new NaturalNumber1L(10));
+
+        int count = 0;
+        for (Map.Pair<String, NaturalNumber> p : s.pairs()) {
+            assertEquals("Fire", p.key());
+            assertEquals(new NaturalNumber1L(10), p.value());
+            count++;
+        }
+
+        assertEquals(1, count);
+    }
+
+    /**
+     * Test for iterable method for many.
+     */
+
+    @Test
+    public void testIterableMany() {
+        SpellBook s = new SpellBook1L();
+        s.addSpell("Fire", new NaturalNumber1L(10));
+        s.addSpell("Ice", new NaturalNumber1L(20));
+        s.addSpell("Wind", new NaturalNumber1L(30));
+
+        Set<String> expected = new Set1L<>();
+        expected.add("Fire");
+        expected.add("Ice");
+        expected.add("Wind");
+
+        int count = 0;
+        for (Map.Pair<String, NaturalNumber> p : s.pairs()) {
+            assertTrue(expected.contains(p.key()));
+
+            if (p.key().equals("Fire")) {
+                assertEquals(new NaturalNumber1L(10), p.value());
+            } else if (p.key().equals("Ice")) {
+                assertEquals(new NaturalNumber1L(20), p.value());
+            } else if (p.key().equals("Wind")) {
+                assertEquals(new NaturalNumber1L(30), p.value());
+            }
+
+            count++;
+        }
+
+        assertEquals(3, count);
     }
 }

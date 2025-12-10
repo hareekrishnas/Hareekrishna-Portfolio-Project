@@ -2,14 +2,12 @@ import components.map.Map;
 import components.map.Map1L;
 import components.naturalnumber.NaturalNumber;
 import components.naturalnumber.NaturalNumber1L;
-import components.set.Set;
-import components.set.Set1L;
 
 /**
  * Implementation of the SpellBook component using the OSU API.
  */
 
-public class SpellBook1L implements SpellBook {
+public class SpellBook1L extends SpellBookSecondary {
     /**
      * The SpellBook1L Component.
      *
@@ -84,15 +82,6 @@ public class SpellBook1L implements SpellBook {
     }
 
     @Override
-    public final Set<String> allSpells() {
-        Set<String> names = new Set1L<>();
-        for (Map.Pair<String, NaturalNumber> p : this.spells) {
-            names.add(p.key());
-        }
-        return names;
-    }
-
-    @Override
     public final SpellBook newInstance() {
         try {
             return this.getClass().getConstructor().newInstance();
@@ -119,63 +108,8 @@ public class SpellBook1L implements SpellBook {
     }
 
     @Override
-    public final Map<String, NaturalNumber> spellsAbove(int minPowerLevel) {
-        Map<String, NaturalNumber> stronger = new Map1L<>();
-        NaturalNumber n = new NaturalNumber1L(minPowerLevel);
-        for (Map.Pair<String, NaturalNumber> p : this.spells) {
-            if (p.value().compareTo(n) > 0) {
-                stronger.add(p.key(), p.value());
-            }
-        }
-        return stronger;
+    public final Iterable<Map.Pair<String, NaturalNumber>> pairs() {
+        return this.spells;
     }
 
-    @Override
-    public final boolean equals(Object obj) {
-
-        if (obj == this) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof SpellBook)) {
-            return false;
-        }
-
-        SpellBook other = (SpellBook) obj;
-        Set<String> spellNames = this.allSpells();
-        Set<String> otherNames = other.allSpells();
-
-        if (spellNames.size() != otherNames.size()) {
-            return false;
-        }
-
-        for (String spell : spellNames) {
-            if (!otherNames.contains(spell)) {
-                return false;
-            }
-            if (!this.getPower(spell).equals(other.getPower(spell))) {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
-    @Override
-    public final String toString() {
-        String result = "{";
-        Set<String> names = this.allSpells();
-        int i = 0;
-        for (String spell : names) {
-            result += spell + ": " + this.getPower(spell).toString();
-            i++;
-            if (i < names.size()) {
-                result += ", ";
-            }
-        }
-        result += "}";
-        return result;
-    }
 }

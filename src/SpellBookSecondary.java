@@ -14,8 +14,7 @@ public abstract class SpellBookSecondary implements SpellBook {
     @Override
     public final Set<String> allSpells() {
         Set<String> names = new Set1L<>();
-        Map<String, NaturalNumber> all = this.spellsAbove(0);
-        for (Map.Pair<String, NaturalNumber> p : all) {
+        for (Map.Pair<String, NaturalNumber> p : this.pairs()) {
             names.add(p.key());
         }
         return names;
@@ -24,17 +23,9 @@ public abstract class SpellBookSecondary implements SpellBook {
     @Override
     public final Map<String, NaturalNumber> spellsAbove(int minPowerLevel) {
         Map<String, NaturalNumber> stronger = new Map1L<>();
-        Set<String> names = this.allSpells();
-        String[] spells = new String[this.spellsCount()];
-        int i = 0;
-        for (String s : names) {
-            spells[i] = s;
-            i++;
-        }
-        for (int x = 0; x < spells.length; x++) {
-            NaturalNumber powerL = this.getPower(spells[x]);
-            if (powerL.toInt() > minPowerLevel) {
-                stronger.add(spells[x], powerL);
+        for (Map.Pair<String, NaturalNumber> p : this.pairs()) {
+            if (p.value().toInt() > minPowerLevel) {
+                stronger.add(p.key(), p.value());
             }
         }
         return stronger;

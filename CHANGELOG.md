@@ -53,3 +53,4 @@ and spellsAbove
 javadoc comments for every method.
 - Added in Parameter modes for all the necessary methods that utilize them
 - Fixed variable names that were unnecessary.
+- Added in 2 use cases for component
