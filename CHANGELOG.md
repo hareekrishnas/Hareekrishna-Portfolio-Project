@@ -8,10 +8,49 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
-## [2024.19.25]
+## [2025.10.19]
 
 ### Added
 
 - Brainstormed 3 components: SpellBook, BackpackInventory, and StopWatch
 - Talked about what kernel and secondary methods I would use in each component
 - Mainly going to focus on SpellBook
+
+[2025.10.30]
+
+### Added
+
+- Designed a proof of concept for SpellBook component
+
+### Updated
+
+- Made the no-args constructor for SpellBook
+- Made the kernel methods in a practice SpellBook class
+- Made the main method and tested all my practice methods
+- All methods working as intended
+
+## [2025.11.06]
+
+### Added
+
+- Designed abstract class for SpellBook component
+
+### Updated
+
+- Changed design to include Secondary method bodies like allSpells
+and spellsAbove
+
+## [2025.12.09]
+
+### Added
+
+- Designed test suite for entire SpellBook component
+- Designed two different use cases for SpellBook component
+
+### Updated
+
+- Changed design to include correct bodies for Standard methods and added in
+javadoc comments for every method.
+- Added in Parameter modes for all the necessary methods that utilize them
+- Fixed variable names that were unnecessary.
+- Added in 2 use cases for component

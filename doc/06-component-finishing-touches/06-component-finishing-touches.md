@@ -1,8 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Hareekrishna Shankarganesh
+- **Dot Number**: Shankarganesh.2
+- **Due Date**: 12/10 @ 12:40 PM EST
 
 ## Assignment Overview
 
@@ -49,8 +49,6 @@ Many of these additional techniques are somewhat out of the scope of this
 course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -140,8 +138,6 @@ merges, you will need to pull the changes from main into your current branch
 to see them. If you don't like this workflow, you may try following the
 rebase strategies described [here](https://stackoverflow.com/questions/35790561/working-while-waiting-for-pending-pr)
 and [here](https://stackoverflow.com/questions/18021888/continue-working-on-a-git-branch-after-making-a-pull-request).
-
-<!-- TODO: make a new branch from main then delete this comment -->
 
 ## Assignment Tasks
 
@@ -307,18 +303,32 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+After finishing up my portfolio project, I feel much better in terms of
+understanding at least the basics of software development because I was able to
+explore some tools that will be useful like using GitHub or even encouraging
+creative thinking. I am glad to be able to choose a topic that interests me as
+I always had a passion for a video game themed coding project. I think I still
+have a long way to go to understanding software development, but this project
+was a great starter for many coding projects to come because I ahve an idea of
+how to layer a project.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+The portfolio project did surface some gaps in my knowledge like how I did not
+know how to fully develop an abstract class beforehand and what the use was.
+I was able to ask for help and revise what I thought I knew to finally improve
+upon my abstract class implementation.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+I did enjoy coding a passion project like my SpellBook component, so this project
+motivated me to do some more projects relating to video games on my own time, so
+I would say this portfolio project had a positive influence in how I like
+software developent. I would still love to explore more tools I can utilize to
+become a better programmer as a whole.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -326,29 +336,40 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+From this portfolio project, I managed to pick up quite a few skills like implementing
+overrideen methods(I did not fully understand how to do it before this project) and
+even other skills like improving upon my project based on looking at my peers'
+projects. I was also able to undersd how to JUNIT test without relying on reference
+testing. These skills will come in useful for my programming journey ahead.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+- Understand what GitHub serves
+- Gained hands-on experience with Object-oriented personal project
+- Gained hands-on experience with testing and debugging my own Java component
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+I think that the portfolio project allowed me to explore how to create a passion
+project more, so I think it positively impacted my career trajectory. I am more
+interested in potentially game development, if possible.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+Similar to this portfolio project, I can create a bigger passion project
+relating to game development and maybe try a different programming language
+like C++. I can also take more of the project related courses that OSU offers to
+improve my coding as well. Some mentors I could contact is my computer science
+professors like(Mr. Grifski and Mr.Sailaja), I could even try to get into
+contact with people already in game development in career fairs.
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -367,8 +388,8 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
-- Designed test suite for <!-- insert name of component here --> component
-- Designed two different use cases for <!-- insert name of component here --> component
+- Designed test suite for SpellBook component
+- Designed two different use cases for SpellBook component
 
 ### Updated
 
@@ -383,8 +404,6 @@ like to accomplish that, you will need to make GitHub releases after each pull
 request merge (or at least tag your commits). This is not required.
 
 ### Submission
-
-<!-- TODO: read the submission instructions then delete this comment -->
 
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
@@ -435,7 +454,5 @@ PDF to read this rubric as a table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9
