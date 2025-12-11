@@ -1,4 +1,4 @@
-import components.map.Map.Pair;
+import components.map.Map;
 import components.naturalnumber.NaturalNumber;
 import components.naturalnumber.NaturalNumber1L;
 
@@ -14,7 +14,7 @@ public class SpellBookUseCase1 {
         System.out.println("SpellBook toString: " + book.toString());
 
         SpellBook strongSpells = new SpellBook1L();
-        for (Pair<String, NaturalNumber> p : book.spellsAbove(20)) {
+        for (Map.Pair<String, NaturalNumber> p : book.spellsAbove(20)) {
             strongSpells.addSpell(p.key(), p.value());
         }
 

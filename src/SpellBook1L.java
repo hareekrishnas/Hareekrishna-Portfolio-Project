@@ -74,11 +74,11 @@ public class SpellBook1L extends SpellBookSecondary {
 
     @Override
     public final boolean hasSpell(String spell) {
-        boolean has = false;
+        boolean hasSpell = false;
         if (this.spells.hasKey(spell)) {
-            has = true;
+            hasSpell = true;
         }
-        return has;
+        return hasSpell;
     }
 
     @Override
